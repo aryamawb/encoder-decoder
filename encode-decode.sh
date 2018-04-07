@@ -47,17 +47,13 @@ if [[ $chooser = "2" ]]; then
 	fi
 fi
 if [[ $chooser = "3" ]]; then
-	echo "${red}1. Decode ${basic}"
-	echo "${blue}2. Encode ${basic}"
+	echo "${red}1. Encode ${basic}"
+	echo "${blue}2. Decode (Unreleased yet) ${basic}"
 	echo "What you want?"
 	read putli
 	if [[ $putli -eq 1 ]]; then
-		echo "Input thing you want to Decode : "
-		read decode
-		echo ${green} && echo $decode | md5sum --decode && echo ${basic}
-	elif [[ $putli -eq 2 ]]; then
 		echo "Input thing you want to encode : "
 		read encode
-		echo ${green} && echo $encode | md5sum && echo ${basic}
+		echo ${green} && echo   -n   $1 | md5sum | awk '{print $1}' && echo ${basic}
 	fi
 fi
